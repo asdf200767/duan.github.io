@@ -1,263 +1,352 @@
 <!DOCTYPE html>
-<html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>图书网站</title>
-     <style>
-         * {
-             margin: 0;
-             padding: 0;
-             box-sizing: border-box;
-         }
-         .header {
-             width: 100%;
-             height: 80px;
-             border: 2px solid #333;
-             margin: 10px auto;
-             padding: 0 20px;
-         }
-         .logo {
-             float: left;
-             width: 180px;
-             height: 100%;
-             line-height: 80px;
-             text-align: center;
-             font-size: 24px;
-             font-weight: bold;
-         }
-         .nav {
-             float: right;
-             height: 100%;
-         }
-         .nav li {
-             float: left;
-             list-style: none;
-             margin-left: 30px;
-             line-height: 80px;
-         }
-         .nav a {
-             text-decoration: none;
-             color: #333;
-             cursor: pointer; 
-         }
-         .nav a:hover {
-             color: #ff4400;
-             cursor: pointer; 
-         }
-         .left-bar {
-             float: left;
-             width: 250px;
-             border: 1px solid #ddd;
-             padding: 15px;
-             margin-right: 20px;
-             position: relative; 
-             top: 0; 
-         }
-         .left-bar h3 {
-             margin-bottom: 15px;
-             padding-bottom: 10px;
-             border-bottom: 1px dashed #ddd;
-         }
-         .left-bar a {
-             display: block;
-             margin: 8px 0;
-             text-decoration: none;
-             color: #666;
-         }
-         .left-bar a:hover {
-             color: #ff4400;
-             cursor: pointer; 
-         }
-         .middle-bar {
-             float: left;
-             width: 900px;
-             border: 1px solid #ddd;
-             padding: 15px;
-             margin-right: 10px;
-             height: 100%;
-             margin-left: 100px;
-         }
-         .hot-book {
-             margin-bottom: 20px;
-         }
-         .hot-book h3 {
-             margin-bottom: 15px;
-             padding-bottom: 10px;
-             border-bottom: 1px dashed #ddd;
-         }
-         .book-item {
-             float: left;
-             width: 140px;
-             height: 220px;
-             border: 1px solid #eee;
-             margin-right: 8px;
-             margin-bottom: 10px;
-             padding: 10px;
-             text-align: center;
-             margin-left: 50px;
-         }
-         .book-item img {
-             width: 100px;
-             height: 140px;
-             margin-bottom: 30px;
-         }
-         .book-item:hover {
-             border-color: #ff4400;
-             cursor: pointer; 
-         }
-         .new-book table {
-             width: 100%;
-             border-collapse: collapse;
-             text-align: center;
-         }
-         .new-book th, .new-book td {
-             border: 1px solid #ddd;
-             padding: 8px;
-         }
-         .new-book th {
-             background-color: #f5f5f5;
-         }
-         .right-bar {
-             width: 300px;
-             border: 1px solid #ddd;
-             padding: 15px;
-              float: left;
-              height: 400px;
-              margin-left: 100px;
-         }
-         .right-bar h3 {
-             margin-bottom: 15px;
-             padding-bottom: 10px;
-             border-bottom: 1px dashed #ddd;
-            
-         }
-         .promo-item {
-             margin-bottom: 15px;
-             padding: 10px;
-             border: 1px solid #ffe4b5;
-             background-color: #fff8dc;
-         }
-         .promo-item:hover {
-             cursor:pointer;
-             background-color: #fff3cd;
-         }
-         .main{
-            border: 1px solid #060505;
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>鲁东大学图书会</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .header {
             width: 100%;
-            height: 1000px;
-         }
-         .jieri table{
-            width: 100%;
-            border: 1px solid #0d0404;
-            height: 200px;
-         }
-         .jieri th{
-            background-color: #fff3cd;
-         }
-         .jieri td{
-            background-color: #fbfafa;
+            height: 80px;
+            border: 2px solid #333;
+            margin: 10px auto;
+            padding: 0 20px;
+            background-color: #fff;
+        }
+
+        .logo {
+            float: left;
+            width: 180px;
+            height: 100%;
+            line-height: 80px;
             text-align: center;
-         }
-       .jieri th,.jieri td{
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav {
+            float: right;
+            height: 100%;
+        }
+
+        .nav li {
+            float: left;
+            list-style: none;
+            margin-left: 30px;
+            line-height: 80px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #ff4400;
+        }
+        .main {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            overflow: hidden; 
+            padding: 0 10px;
+        }
+
+        .left-bar {
+            float: left;
+            width: 220px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-right: 20px;
+            background-color: #fff;
+            position: relative; 
+            top: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .left-bar h3 {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #ddd;
+            color: #333;
+        }
+
+        .left-bar a {
+            display: block;
+            margin: 8px 0;
+            text-decoration: none;
+            color: #666;
+            padding-left: 10px;
+            transition: all 0.3s;
+        }
+
+        .left-bar a:hover {
+            color: #ff4400;
+            padding-left: 15px;
+            border-left: 2px solid #ff4400;
+        }
+        .middle-bar {
+            float: left;
+            width: calc(100% - 560px);
+            min-width: 600px; 
+            border: 1px solid #ddd;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .hot-book {
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .hot-book h3 {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #ddd;
+            color: #333;
+        }
+        .book-item {
+            float: left;
+            width: 140px;
+            height: 220px;
+            border: 1px solid #eee;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .book-item img {
+            width: 100px;
+            height: 140px;
+            margin-bottom: 10px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        .book-item:hover {
+            border-color: #ff4400;
+            transform: translateY(-3px);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        .new-book table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .new-book th, .new-book td {
+            border: 1px solid #b7aaaa;
+            padding: 10px 8px;
+        }
+
+        .new-book th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+
+        .new-book tr:hover {
+            background-color: #fff8f0;
+            cursor: pointer;
+        }
+        .jieri {
+            margin-bottom: 20px;
+        }
+
+        .jieri h1 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 8px;
+        }
+
+        .jieri table {
+            width: 100%;
+            border-collapse: collapse;
+            height: auto;
+        }
+
+        .jieri th, .jieri td {
             border: 1px solid #0d0404;
             padding: 8px;
-         }
-         .jieri table{
-            border-collapse: collapse;
-         }
-     </style>
- </head>
- <body>
+            text-align: center;
+        }
+
+        .jieri th {
+            background-color: #fff3cd;
+            font-weight: bold;
+        }
+
+        .jieri td {
+            background-color: #fbfafa;
+        }
+        .right-bar {
+            float: right;
+            width: 300px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .right-bar h3 {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #ddd;
+            color: #333;
+        }
+
+        .promo-item {
+            margin-bottom: 15px;
+            padding: 12px;
+            border: 1px solid #ffe4b5;
+            background-color: #fff8dc;
+            border-radius: 4px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .promo-item:hover {
+            background-color: #fff3cd;
+            transform: scale(1.02);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+        }
+
+         
+            .middle-bar {
+                width: calc(100% - 540px);
+                min-width: 500px;
+            
+        }
+
+        
+            .main {
+                padding: 0 5px;
+            }
+            .left-bar {
+                width: 200px;
+            }
+            .right-bar {
+                width: 280px;
+            }
+            .middle-bar {
+                width: calc(100% - 500px);
+                min-width: 450px;
+            }
     
-     <div class="header">
-         <div class="logo">鲁东大学图书会</div>
-         <ul class="nav">
-             <li><a href=" ">首页</a ></li>
-             <li><a href="#">图书分类</a ></li>
-             <li><a href="#">热门推荐</a ></li>
-             <li><a href="#">关于我们</a ></li>
-         </ul>
-     </div>
-     <div class="main">
-         <div class="left-bar">
-             <h3>图书分类</h3>
-             <a href="#">文学小说</a >
-             <a href="#">计算机科学</a >
-             <a href="#">经济管理</a >
-             <a href="#">人文历史</a >
-             <a href="#">科普读物</a >
-             <a href="#">艺术设计</a >
-         </div>
-         <div class="middle-bar">
-             <div class="hot-book">
-                 <h3>热门推荐</h3>
-                 <div class="book-item">
-                     <img src="https://asdf200767.github.io/duan.github.io/tushu7.png" alt="图书封面">
-                     <p>《三国演义》</p >
-                 </div>
-                 <div class="book-item">
-                     <img src="https://asdf200767.github.io/duan.github.io/tushu5.png" alt="图书封面">
-                     <p>《西游记》</p >
-                 </div>
-                 <div class="book-item">
-                     <img src="https://asdf200767.github.io/duan.github.io/tushu4.png" alt="图书封面">
-                     <p>《三体》</p >
-                 </div>
-                 <div class="book-item">
-                     <img src="https://asdf200767.github.io/duan.github.io/tushu6.png" alt="图书封面">
-                     <p>《水浒传》</p >
-                 </div>
-             </div>
-             <div class="new-book">
-                
-                 <table>
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">鲁东大学图书会</div>
+        <ul class="nav">
+            <li><a href=" ">首页</a ></li>
+            <li><a href="#">图书分类</a ></li>
+            <li><a href="#">热门推荐</a ></li>
+            <li><a href="#">关于我们</a ></li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <div class="left-bar">
+            <h3>图书分类</h3>
+            <a href="#">文学小说</a >
+            <a href="#">计算机科学</a >
+            <a href="#">经济管理</a >
+            <a href="#">人文历史</a >
+            <a href="#">科普读物</a >
+            <a href="#">艺术设计</a >
+        </div>
+        <div class="middle-bar">
+            <div class="hot-book">
+                <h3>热门推荐</h3>
+                <div class="book-item">
+                    <img src="../图片/tushu7.png" alt="三国演义">
+                    <p>《三国演义》</p >
+                        <p>$64.00</p>
+                </div>
+                <div class="book-item">
+                    <img src="../图片/tushu3.png" alt="活着">
+                    <p>《活着》</p >
+                        <p>90.00</p>
+                </div>
+                <div class="book-item">
+                    <img src="../图片/tushu4.png" alt="三体">
+                    <p>《三体》</p >
+                    <p>$110.00</p>
+                </div>
+                <div class="book-item">
+                    <img src="../图片/tushu6.png" alt="水浒传">
+                    <p>《水浒传》</p >
+                        <p>$54.00</p>
+                </div>
+            </div>
+
+        
+            <div class="new-book">
+                <table>
                     <tr>
-                     <th colspan="4">新书上市</th>
+                        <th colspan="4">新书上市</th>
                     </tr>
-                     <tr>
-                         <th>书名</th>
-                         <th>作者</th>
-                         <th>价格</th>
-                         <th>优惠</th>
-                     </tr>
-                     <tr>
-                         <td>《三体》</td>
-                         <td>刘慈欣</td>
-                         <td>59.00元</td>
-                         <td>相关书籍打八折</td>
-                     </tr>
-                     <tr>
-                         <td>《三国演义》</td>
-                         <td>罗贯中</td>
-                         <td>45.00元</td>
-                         <td>买一送一</td>
-                     </tr>
-                     <tr>
-                         <td>《水浒传》</td>
-                         <td>施耐庵</td>
-                         <td>69.00元</td>
-                         <td>提前到打九折</td>
-                     </tr>
-                 </table>
-             </div>
-             <div class="jieri">
+                    <tr>
+                        <th>书名</th>
+                        <th>作者</th>
+                        <th>价格</th>
+                        <th>优惠</th>
+                    </tr>
+                    <tr>
+                        <td>《三体》</td>
+                        <td>刘慈欣</td>
+                        <td>59.00元</td>
+                        <td>相关书籍打八折</td>
+                    </tr>
+                    <tr>
+                        <td>《三国演义》</td>
+                        <td>罗贯中</td>
+                        <td>45.00元</td>
+                        <td>买一送一</td>
+                    </tr>
+                    <tr>
+                        <td>《水浒传》</td>
+                        <td>施耐庵</td>
+                        <td>69.00元</td>
+                        <td>提前到打九折</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="jieri">
                 <h1>节日特场</h1>
                 <table>
                     <tr>
                         <th>春天</th>
-                        <th colspan="2">代表书籍:</th>
+                        <th colspan="2">代表书籍</th>
                         <th>夏天</th>
-                        <th colspan="2">代表书籍:</th>
+                        <th colspan="2">代表书籍</th>
                         <th>秋天</th>
-                        <th colspan="2">代表书籍:</th>
+                    <th colspan="2">代表书籍</th>
                         <th>冬天</th>
-                        <th colspan="2">代表书籍:</th>
+                        <th colspan="2">代表书籍</th>
                     </tr>
                     <tr>
                         <td>汪曾祺</td>
                         <td colspan="2">《生活是很好玩的》</td>
-                        <td>洛伊丝.劳里</td>
+                        <td>洛伊丝·劳里</td>
                         <td colspan="2">《最后的夏天》</td>
                         <td>史铁生</td>
                         <td colspan="2">《秋天的怀念》</td>
@@ -265,27 +354,23 @@
                         <td colspan="2">《浮生六记》</td>
                     </tr>
                 </table>
-             </div>
-         </div>
-         <div class="right-bar">
-             <h3>促销活动</h3>
-             <div class="promo-item">
-                 <p>限时折扣：全场图书满100减30</p >
-                 <p>活动时间：2025-10-20起</p >
-             </div>
-             <div class="promo-item">
-                 <p>新客福利：首次下单享8折优惠</p >
-                 <p>下单即可</p >
-             </div>
-             <div class="promo-item">
-                 <p>满赠活动：满200赠定制书签套装</p >
-                 <p>赠品有限，先到先得</p >
-             </div>
-         </div>
-     </div>
- </body>
- </html>
-
-
-
-
+            </div>
+        </div>
+        <div class="right-bar">
+            <h3>促销活动</h3>
+            <div class="promo-item">
+                <p>限时折扣：全场图书满100减30</p >
+                <p>活动时间：2025-10-20起</p >
+            </div>
+            <div class="promo-item">
+                <p>新客福利：首次下单享8折优惠</p >
+                <p>下单即可</p >
+            </div>
+            <div class="promo-item">
+                <p>满赠活动：满200赠定制书签套装</p >
+                <p>赠品有限，先到先得</p >
+            </div>
+        </div>
+    </div>
+</body>
+</html>
