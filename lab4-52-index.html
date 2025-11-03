@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>鲁东大学图书会</title>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_5039821_1piqah6tfifh.css">
     <style>
         * {
             margin: 0;
@@ -68,8 +69,8 @@
         }
 
         .nav a:hover {
-            color: #e74c3c;
-            background-color: #f9f9f9;
+            color: #f72011;
+            background-color: #e3d5d5;
         }
         .main {
             width: 100%;
@@ -120,7 +121,7 @@
         .middle-bar {
             float: left;
             width: calc(100% - 560px);
-            min-width: 600px;
+            min-width: 800px;
             border: 1px solid #ddd;
             padding: 20px;
             background-color: #fff;
@@ -155,10 +156,10 @@
         }
         .book-item {
             float: left;
-            width: 140px;
+            width: 280px;
             height: 220px;
             border: 1px solid #eee;
-            margin-right: 240px;
+            margin-right: 100px;
             margin-bottom: 20px;
             padding: 10px;
             text-align: center;
@@ -167,17 +168,19 @@
             border-radius: 6px;
             background-color: #fff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            overflow: hidden;
-            position: relative;
+            position:relative ;
+            z-index: 5;
+            
         }
-
         .book-item img {
             width: 100px;
-            height: 140px;
+            height: 150px;
             margin-bottom: 10px;
             object-fit: cover;
             border: 1px solid #eee;
             border-radius: 4px;
+            float: left;
+            
         }
 
         .book-item:hover {
@@ -185,12 +188,16 @@
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             overflow: visible;
+            
+            
         }
 
         .book-item p {
             font-weight: bold;
             color: #2c3e50;
             font-size: 14px;
+            float: left;
+            margin-left: 30px;
         }
         .new-book table {
             width: 100%;
@@ -374,17 +381,33 @@
             .caidan{
                 position: absolute;
                 top: 30px;
-                right: 450px;
+                right: 480px;
                 font-size: 20px;
             } 
             .cang{
                 position: absolute;
-                top: 20px;
+                top: -20px;
                 left: 150px;
                 background-color: #f5f8f8;
                 width: 200px;
-                height: 200px;
+                height: 250px;
                 border: 2px solid #f4da12;
+                opacity: 0;
+            }
+            .cang img{
+                position: absolute;
+                top: 0;
+                right: 10px;
+                height: 200px;
+                width: 180px;
+            }
+            .cang h1{
+                position: absolute;
+                top: 190px;
+                right: 60px;
+            }
+            .book-item:hover .cang{
+                opacity: 1;
             } 
             .title::before{
             content: "";
@@ -420,7 +443,7 @@
             }
             .ludong:hover .ludong1{
                 opacity: 0.1;
-                transition: 1s;
+                transition: 0.3s;
             }
             .ludong2{
                 position: absolute;
@@ -428,8 +451,9 @@
                 width: 34px;
                 top: 200px;
                 left: 50%;
+                border-radius: 50%;
             }
-             .zi{
+            .zi{
                 position: absolute;
                 top: 40px;
                 left: 10px;
@@ -453,17 +477,80 @@
               background-color: #ecf0f1;
               color: #e74c3c;
             }
+            .yin{
+                position: absolute;
+                right: 350px;
+                top: 28px;
+                text-align: center;
+                border: 1px solid #0e0101;
+                background-color: #ddd;
+                height: 26px;
+                width: 100px;
+            }
+            .yin p{
+                border: 1px solid;
+            }
+            .yin2{
+                position: absolute;
+                top: 26px;
+                opacity: 0;
+                background-color: #ddd;
+                width: 100px;
+            }
+            .yin:hover .yin2{
+                opacity: 1;
+            }
+            .yin2 p:hover{
+                color: #e74c3c;
+                cursor: pointer;
+            }
+            .iconfont{
+                font-size: 30px;
+                margin-right: 20px;
+                background-color: #f1f8ff;
+            }
+            .nav1{
+                border: 1px solid #0e0101;
+                text-align: center;
+                opacity: 0;
+            }
+            .nav1 p{
+                padding: 1px;
+                height: 60px;
+            }
+            .nav:hover .nav1{
+                opacity: 1;
+            }
+            .nav1 p:hover{
+                color: #e74c3c;
+                cursor: pointer;
+                background-color: #fafafa;
+            }
+
     </style>
 </head>
 <body>
     <div class="header">
         
         <div class="logo">鲁东大学图书会</div>
+        <div class="yin"><p>首页</p>
+                <div class="yin2">
+                <p>小说</p>
+            <p>名著</p>
+            <p>社会</p>
+            <p>漫画</p>
+            <p>连环画</p>
+            </div> 
+            </div>  
         <ul class="nav">
-            <li><a href=" ">首页</a ></li>
-            <li><a href="#">图书分类</a ></li>
+            <li><a href="#">图书分类</a >
+                <ul class="nav">
             <li><a href="#">热门推荐</a ></li>
-            <li><a href="#">关于我们</a ></li>      
+            </ul>
+            <ul class="nav">
+            <li><a href="#">关于我们</a ></li>
+            </ul>
+              
         </ul>
         <select class="caidan">
         <option value="">请选择图书</option>
@@ -479,27 +566,27 @@
     <div class="main">
         <div class="left-bar">
             <h3>图书分类</h3>
-            <a href="#">文学小说</a >
-            <a href="#">计算机科学</a >
-            <a href="#">经济管理</a >
-            <a href="#">人文历史</a >
-            <a href="#">科普读物</a >
-            <a href="#">艺术设计</a >
-            <a href="#">教育考试</a >
-            <a href="#">生活休闲</a >
+            <a href="#"><span class="iconfont icon-tubiao1shuxiaoshuo"></span>文学小说</a >
+            <a href="#"><span class="iconfont icon-jisuanji"></span>计算机科学</a >
+            <a href="#"><span class="iconfont icon-_shehuijingji"></span>经济管理</a >
+            <a href="#"><span class="iconfont icon-renwenlishi"></span>人文历史</a >
+            <a href="#"><span class="iconfont icon-kepu"></span>科普教育</a >
+            <a href="#"><span class="iconfont icon-yishushejichuanmei"></span>艺术传媒</a >
+            <a href="#"><span class="iconfont icon-jiaoyukaoshi"></span>教育考试</a >
+            <a href="#"><span class="iconfont icon-shenghuoxiuxian"></span>生活休闲</a >
         </div>
         <div class="middle-bar">
                 <div class="ludong">
                     <h1 class="title">鲁东大学图书会欢迎你</h1>
-                        <img class="ludong1" src="https://asdf200767.github.io/duan.github.io/ludong.png" alt="鲁东大学图书会">
-                        <img class="ludong2" src="https://asdf200767.github.io/duan.github.io/bofang.png">
+                        <img class="ludong1" src="../图片/ludong.png" alt="鲁东大学图书会">
+                        <img class="ludong2" src="../图片/bofang.png">
             </div>
             <div class="hot-book">
                 <h3 class="section-title">热门推荐</h3>
                 <div class="book-item">
                     <div class="cang">
                         
-                    <img src="https://asdf200767.github.io/duan.github.io/tushu7.png">
+                    <img src="../图片/tushu7.png">
                     
                     <h1>三国演义</h1>
                     </div>
@@ -507,44 +594,48 @@
                             <h2 class="kong1">加入购物车</h2>
                             <h2 class="kong2">购买</h2>
                         </div>
-                    <img src="https://asdf200767.github.io/duan.github.io/tushu7.png" alt="三国演义">
-                    <p>《三国演义》</p>
+                    <img src="../图片/tushu7.png" alt="三国演义">
+                    <p>《三国演义》:</p>
+                    <a>《三国演义》叙汉末三国纷争，绘魏蜀吴争霸。刘备仁、曹操奸、诸葛智，融史事与传奇，成古典演义巅峰</a>
                 </div>
                 <div class="book-item">
                     <div class="cang">
-                    <img src="https://asdf200767.github.io/duan.github.io/tushu8.png">
+                    <img src="../图片/tushu8.png">
                     <h1>活着</h1>
                     </div>
                     <div class="zi">
                         <h2 class="kong1">加入购物车</h2>
                             <h2 class="kong2">购买</h2>
                         </div>
-                    <img src="https://asdf200767.github.io/duan.github.io/tushu8.png" alt="活着">
-                    <p>《活着》</p >
+                    <img src="../图片/tushu8.png" alt="活着">
+                    <p>《活着》:</p>
+                    <a>《活着》写福贵从富家子到孤苦老人，亲人陆续离世，唯与老牛相伴。苦难中，活着本身成了对抗命运的终极力量，直抵生命本质。</a>
                 </div>
                 <div class="book-item">
                     <div class="cang">
-                    <img src="https://asdf200767.github.io/duan.github.io/tushu4.png">
+                    <img src="../图片/tushu4.png">
                     <h1>三体</h1>
                     </div>
                     <div class="zi">
                     <h2 class="kong1">加入购物车</h2>
                     <h2 class="kong2">购买</h2>
                         </div>
-                    <img src="https://asdf200767.github.io/duan.github.io/tushu4.png" alt="三体">
-                    <p>《三体》</p >
+                    <img src="../图片/tushu4.png" alt="三体">
+                    <p>《三体》:</p >
+                        <a>刘慈欣《三体》以三体文明入侵为引，展人类抗争，借黑暗森林法则揭示宇宙文明存续的残酷，叩问存在意义。</a>
                 </div>
                 <div class="book-item">
                     <div class="cang">
-                    <img src="https://asdf200767.github.io/duan.github.io/tushu6.png">
+                    <img src="../图片/tushu6.png">
                     <h1>水浒传</h1>
                     </div>
                     <div class="zi">
                             <h2 class="kong1">加入购物车</h2>
                             <h2 class="kong2">购买</h2>
                         </div>
-                    <img src="https://asdf200767.github.io/duan.github.io/tushu6.png" alt="水浒传">
+                    <img src="../图片/tushu6.png" alt="水浒传">
                     <p>《水浒传》</p>
+                    <a>《水浒传》写一百单八将聚义梁山，以忠义抗不公。招安后英雄末路，悲怆中照见封建末世的社会矛盾与人性挣扎。</a>
                 </div>
             </div>
             <div class="new-book">
@@ -629,7 +720,4 @@
         </div>
     </div>
 </body>
-
 </html>
-
-
