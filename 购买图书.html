@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            .box{
+                background-size: cover;
+                width: 100%;
+                height: 1000px;
+            }
+            .chusheng{
+                color: rgb(2, 12, 21);
+            }
+            .tijaio{
+                position: absolute;
+                top: 423px;
+                left: 567px;
+            }
+            select{
+                width: 100px;
+            }
+            .maishu{
+                color: rgb(2, 13, 23);
+            }
+            textarea{
+                width: 400px;
+                height: 100px;
+            }
+            .tupian img{
+                width: 100%;
+                height: 300px;
+            }
+            body{
+                background-image: url(../图片/beijing.png);
+                background-size: cover;
+            }
+            .shuji-img {
+                width: 150px;
+                height: 200px;
+            }
+            .goumai{
+                display: flex;
+            }
+            .shuji{
+                margin-left: 100px;
+            }
+            select{
+                height: 30px;
+            }
+            .chenggong{
+                float: right;
+            }
+            
+        </style>
+    </head>
+<body>
+    <div class="box">
+        <div class="tupian">
+            <img src="../图片/shuhai.png">
+        </div>
+    <form action="" method="get">
+        <div class="chusheng">
+        出生地：<select>
+<option>北京市</option>
+<option>河南省</option>
+<option>山东省</option>
+<option>河北省</option>
+<option>湖北省</option>
+<option>山西省</option>
+<option>新疆省</option>
+<option>辽宁省</option>
+<option>广东省</option>
+<option>陕西省</option>
+<option>黑龙江省</option>
+    </select>
+    性别：<select>
+        <option>男</option>
+        <option>女</option>
+    </select>
+    </div>
+    <form>
+    <div class="xingqu">
+        <textarea name="兴趣" placeholder="请写出你的兴趣爱好"></textarea>
+        <span>（请输入200字以内）</span>
+    </div>
+    <div class="maishu">
+        <h3>选择想要买的书：</h3><select id="img" name="选择的图书">
+            <option value="三国演义">三国演义</option>
+           <option value="活着">活着</option>
+           <option value="水浒传">水浒传</option>
+           <option value="三体">三体</option>
+           <option value="红楼梦">红楼梦</option>
+        </select>
+    </div>
+    <div class="goumai">
+    <label>
+        <input type="radio" name="选择书籍" value="选择想要的书籍" class="shuji" placeholder="请提交所要书籍图片"  required>
+        <img src="../图片/tushu6.png" alt="水浒传" class="shuji-img">
+    </label>
+<h1>水浒传</h1>
+<label>
+        <input type="radio" name="选择书籍" value="选择想要的书籍" class="shuji" placeholder="请提交所要书籍图片"  required>
+        <img src="../图片/tushu7.png" alt="三国演义" class="shuji-img">
+    </label>
+<h1>三国演义</h1>
+<label>
+        <input type="radio" name="选择书籍" value="选择想要的书籍" class="shuji" placeholder="请提交所要书籍图片"  required>
+        <img src="../图片/tushu8.png" alt="活着" class="shuji-img">
+    </label>
+<h1>活着</h1>
+<label>
+        <input type="radio" name="选择书籍" value="选择想要的书籍" class="shuji" placeholder="请提交所要书籍图片"  required>
+        <img src="../图片/tushu9.png" alt="红楼梦" class="shuji-img">
+    </label>
+<h1>红楼梦</h1>
+<label>
+        <input type="radio" name="选择书籍" value="选择想要的书籍" class="shuji" placeholder="请提交所要书籍图片"  required>
+        <img src="../图片/tushu5.png" alt="西游记" class="shuji-img">
+    </label>
+<h1>西游记</h1>
+</div>
+<textarea name="留言" placeholder="请写下你的留言及建议"></textarea>
+<h4>（请输入300字以内）</h4>
+<label>
+    <input type="submit" value="点击即可购买成功" style="width: 150px; height: 50px; float: right; background-color: coral; margin-right: 850px;">
+</label>
+</div>
+    </form>
+</body>
+    </html>
