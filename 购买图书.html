@@ -51,7 +51,18 @@
             .chenggong{
                 float: right;
             }
-            
+            .form-group{
+                float: right;
+                position: absolute;
+                left: 900px;
+                top: 400px;
+            }
+            .yonghu{
+                float: right;
+                position: absolute;
+                left: 915px;
+                top: 350px;
+            }
         </style>
     </head>
 <body>
@@ -83,6 +94,20 @@
     <div class="xingqu">
         <textarea name="兴趣" placeholder="请写出你的兴趣爱好"></textarea>
         <span>（请输入200字以内）</span>
+        <div class="yonghu">
+    <label for="username">用户名：</label>
+    <input type="text" id="username" name="username" placeholder="请填写用户名" style="background-color: rgb(64, 230, 13); color: black; min-height: 30px;" >
+</div>
+  <div class="form-group">
+    <label for="file-upload">上传文件：</label>
+    <input 
+      type="file" 
+      id="file-upload" 
+      name="upload-file" 
+      accept=".pdf,.doc,.docx,.jpg,.png"
+      style="background-color: #37d83f; "  
+      multiple>  
+  </div>
     </div>
     <div class="maishu">
         <h3>选择想要买的书：</h3><select id="img" name="选择的图书">
