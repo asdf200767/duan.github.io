@@ -149,10 +149,10 @@
         }
         .book-item {
             float: left;
-            width: 280px;
+            width: 220px;
             height: 220px;
             border: 1px solid #eee;
-            margin-right: 100px;
+            margin-right: 150px;
             margin-bottom: 20px;
             padding: 10px;
             text-align: center;
@@ -519,4 +519,63 @@
                 color: #e74c3c;
                 cursor: pointer;
                 background-color: #fafafa;
+            }
+            .biaodan1{
+                position: absolute;
+                top: 10px;
+                left: 300px;
+                display: flex;
+            }
+            .biaodan1 h1{
+                margin-left: 20px;
+                background-color: #f31212;
+                border-radius: 20%;
+            }
+            .biaodan1:hover{
+            cursor: pointer;
+            opacity: 0.4;
+            }
+            .biaodan1 a{
+                text-decoration: none;
+                color: #d18a8a;
+            }
+             .biaodan2{
+                position: absolute;
+                top: 10px;
+                left: 400px;
+                display: flex;
+            }
+            .biaodan2 h1{
+                margin-left: 20px;
+                background-color: #f80707;
+                border-radius: 20%;
+            }
+            .biaodan2:hover{
+            cursor: pointer;
+            opacity: 0.4;}
+             .biaodan2 a{
+                text-decoration: none;
+                color: #c99a9a;
+            }
+            .gouwuche{
+                position: absolute;
+                background-color: #c12121;
+                border-radius: 10%;
+                left: 800px;
+                top: 10px;
+            }
+            .gouwuche a{
+                text-decoration: none;
+                color: #d86a37;
+            }
+            .gouwuche:hover{
+                opacity: 0.4;
+                cursor: pointer;
+            }
+            .gouwu{
+                position: absolute;
+                left: 750px;
+                top: 10px;
+                color: #d86a37;
+                border-radius: 50%;
             }
