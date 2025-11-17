@@ -374,7 +374,7 @@
             .caidan{
                 position: absolute;
                 top: 30px;
-                right: 480px;
+                right: 500px;
                 font-size: 20px;
             } 
             .cang{
@@ -472,7 +472,7 @@
             }
             .yin{
                 position: absolute;
-                right: 350px;
+                right: 700px;
                 top: 28px;
                 text-align: center;
                 border: 1px solid #0e0101;
@@ -579,3 +579,4 @@
                 color: #d86a37;
                 border-radius: 50%;
             }
+
