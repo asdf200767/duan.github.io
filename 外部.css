@@ -157,9 +157,8 @@
             width: 220px;
             height: 220px;
             border: 1px solid #eee;
-            margin-right: 15%;
-            margin-bottom: 20px;
-            padding: 10px;
+            margin-bottom: 10%;
+            margin-left: 8%;
             text-align: center;
             transition: all 0.3s;
             cursor: pointer;
@@ -186,8 +185,7 @@
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             overflow: visible;
-            
-            
+            transform: scale(1.2);
         }
 
         .book-item p {
@@ -654,4 +652,3 @@ body{
     background-image: url(https://asdf200767.github.io/duan.github.io/beijing1.png);
     background-size: cover;
 }
-
