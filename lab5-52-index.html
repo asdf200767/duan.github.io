@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>鲁东大学图书会</title>
-    <link rel="stylesheet" href="https://github.com/asdf200767/duan.github.io/blob/main/%E5%AE%9E%E9%AA%8C5%E7%99%BB%E5%BD%95%E9%A1%B5%E9%9D%A2.html">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_5039821_yukexk92apd.css?spm=a313x.manage_type_myprojects.i1.9.6c4a3a81CdMXnC&file=font_5039821_yukexk92apd.css" >
     <link rel="stylesheet" href="外部.css">
 </head>
 <body>
@@ -28,18 +28,13 @@
             <li><a href="https://www.ldu.edu.cn/">关于我们</a ></li>
             </ul>
                <ul class="nav">
-            <li style="font-size: x-large; "><a href="https://asdf200767.github.io/duan.github.io/实验5登录页面.html" target="-blank">登录/注册</a ></li>
+            <li style="font-size: x-large; "><a href="https://asdf200767.github.io/duan.github.io/实验5登录页面.html" target="_blank">登录/注册</a ></li>
             </ul>
         </ul>
-        <select class="caidan">
-        <option value="">请选择图书</option>
-        <option >《三国演义》</option>
-        <option >《西游记》</option>
-        <option>《活着》</option>
-        <option>《水浒传》</option>
-        <option>《三体》</option>
-        <option>《红楼梦》</option>
-    </select>
+        <form class="caidan" action="搜索结果页.html" method="get">
+    <input type="text" name="keyword" class="search-input" placeholder="搜索图书、作者或分类...">
+    <button type="submit" class="search-btn">搜索</button>
+</form>
     </div>
 
     <div class="main">
@@ -53,13 +48,15 @@
             <a href="#"><span class="iconfont icon-yishushejichuanmei"></span>艺术传媒</a >
             <a href="#"><span class="iconfont icon-jiaoyukaoshi"></span>教育考试</a >
             <a href="#"><span class="iconfont icon-shenghuoxiuxian"></span>生活休闲</a >
-        </div>
+        </div><ul class="ludong1">
+                        <li><img src="../图片/ludong.png"></li>
+                        <li><img src="../图片/yuandi.jpg"></li>
+                        <li><img src="../图片/yuandi1.png"></li>
+                        <li><img src="../图片/yuandi2.png"></li>
+                        <li><img src="../图片/yuandi3.jpg"></li>
+                    </ul>
         <div class="middle-bar">
-                <div class="ludong">
-                    <h1 class="title">鲁东大学图书会欢迎你</h1>
-                        <img class="ludong1" src="https://asdf200767.github.io/duan.github.io/ludong.png" alt="鲁东大学图书会">
-                        <img class="ludong2" src="https://asdf200767.github.io/duan.github.io/bofang.png">
-            </div>
+                
             <div class="hot-book">
                 <h3 class="section-title">热门推荐</h3>
                 <div class="book-item">
@@ -201,6 +198,4 @@
 </body>
 
 </html>
-
-
 
