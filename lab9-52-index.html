@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>鲁东大学图书会</title>
     <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_5039821_yukexk92apd.css">
-    <link rel="stylesheet" href="外部.css">
+    <link rel="stylesheet" href="https://asdf200767.github.io/duan.github.io/外部.css?v=20251228">
 </head>
 <body>
     <div class="header">
         <div class="logo">鲁东大学图书会</div>
-        
         <div class="yin">
             <p>分类</p>
             <div class="yin2">
@@ -21,14 +20,12 @@
                 <p>连环画</p>
             </div>
         </div>
-        
         <ul class="nav">
             <li><a href="#">图书分类</a></li>
             <li><a href="#">热门推荐</a></li>
             <li><a href="https://www.ldu.edu.cn/">关于我们</a></li>
             <li><a href="javascript:;" id="loginLink">登录/注册</a></li>
         </ul>
-        
         <div class="smart-search">
             <input type="text" class="search-input" id="smartSearchInput" placeholder="搜索图书、作者、分类...">
             <div class="search-filter">
@@ -117,7 +114,6 @@
 
             <div class="hot-book">
                 <h3 class="section-title">热门推荐</h3>
-                
                 <div class="kan">
                     <ul class="xuanzhuan">
                         <li><img src="https://asdf200767.github.io/duan.github.io/san.jpg" alt="三国演义"></li>
@@ -491,7 +487,6 @@
                         elements.loginModal.classList.remove('show');
                         elements.loginLink.innerHTML = `欢迎：${username.substring(0, 6)}`;
                         elements.loginLink.style.color = '#e74c3c';
-                        
                         this.reset();
                         resetLoginForm();
                         alert('登录成功！');
@@ -515,7 +510,6 @@
                     const buyBtn = item.querySelector('.kong2');
                     const cartBtn = item.querySelector('.kong1');
                     const bookName = item.querySelector('p').innerText.replace('：', '').replace('《', '').replace('》', '');
-                    
                     const book = bookData.find(b => b.name === bookName);
 
                     cartBtn.addEventListener('click', function(e) {
@@ -542,19 +536,16 @@
 
             function initRandomBooks() {
                 renderRandomBooks();
-                
                 elements.refreshBooksBtn.addEventListener('click', renderRandomBooks);
 
                 function renderRandomBooks() {
                     const tempBooks = [...bookData];
                     const randomBooks = [];
-                    
                     while (randomBooks.length < 5 && tempBooks.length > 0) {
                         const randomIndex = Math.floor(Math.random() * tempBooks.length);
                         const book = tempBooks.splice(randomIndex, 1)[0];
                         randomBooks.push(book);
                     }
-                    
                     const booksHtml = randomBooks.map(book => `
                         <div class="random-book-item">
                             <h4>《${book.name}》</h4>
@@ -564,7 +555,6 @@
                             <p>${book.inStock ? '有货' : '无货'}</p>
                         </div>
                     `).join('');
-                    
                     elements.randomBookList.innerHTML = booksHtml;
                 }
             }
@@ -603,7 +593,6 @@
                             <th>库存状态</th>
                         </tr>
                     `;
-                    
                     tableHtml += books.map(book => `
                         <tr>
                             <td>《${book.name}》</td>
@@ -613,7 +602,6 @@
                             <td>${book.inStock ? '有货' : '无货'}</td>
                         </tr>
                     `).join('');
-                    
                     elements.newBookTable.innerHTML = tableHtml;
                 }
             }
@@ -635,26 +623,21 @@
                 function updateCountdown() {
                     const now = new Date();
                     const diff = endTime - now;
-                    
                     if (diff <= 0) {
                         elements.countdownEl.innerText = '活动已结束！';
                         return;
                     }
-                    
                     const hours = Math.floor(diff / (1000 * 60 * 60));
                     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-                    
                     elements.countdownEl.innerText = `活动倒计时：${
                         hours.toString().padStart(2, '0')}:${
                         minutes.toString().padStart(2, '0')}:${
                         seconds.toString().padStart(2, '0')
                     }`;
                 }
-                
                 updateCountdown();
                 setInterval(updateCountdown, 1000);
-                
                 setTimeout(function() {
                     console.log('欢迎使用鲁东大学图书会系统！');
                 }, 5000);
@@ -670,7 +653,6 @@
                         <th>库存状态</th>
                     </tr>
                 `;
-                
                 tableHtml += bookData.map(book => `
                     <tr>
                         <td>《${book.name}》</td>
@@ -680,7 +662,6 @@
                         <td>${book.inStock ? '有货' : '无货'}</td>
                     </tr>
                 `).join('');
-                
                 elements.newBookTable.innerHTML = tableHtml;
             }
 
