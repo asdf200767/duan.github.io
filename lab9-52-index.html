@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鲁东大学图书会</title>
+    <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_5039821_yukexk92apd.css">
+    <link rel="stylesheet" href="外部.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">鲁东大学图书会</div>
+        
+        <div class="yin">
+            <p>分类</p>
+            <div class="yin2">
+                <p>小说</p>
+                <p>名著</p>
+                <p>社会</p>
+                <p>漫画</p>
+                <p>连环画</p>
+            </div>
+        </div>
+        
+        <ul class="nav">
+            <li><a href="#">图书分类</a></li>
+            <li><a href="#">热门推荐</a></li>
+            <li><a href="https://www.ldu.edu.cn/">关于我们</a></li>
+            <li><a href="javascript:;" id="loginLink">登录/注册</a></li>
+        </ul>
+        
+        <div class="smart-search">
+            <input type="text" class="search-input" id="smartSearchInput" placeholder="搜索图书、作者、分类...">
+            <div class="search-filter">
+                <button class="filter-btn active" data-type="all">全部</button>
+                <button class="filter-btn" data-type="name">书名</button>
+                <button class="filter-btn" data-type="author">作者</button>
+                <button class="filter-btn" data-type="category">分类</button>
+            </div>
+            <div class="search-result" id="searchResult"></div>
+        </div>
+    </div>
+
+    <div class="login-modal" id="loginModal">
+        <div class="login-box">
+            <div class="close-btn" id="closeLogin">×</div>
+            <div class="login-title">用户登录</div>
+            <form id="loginForm">
+                <div class="form-item">
+                    <label for="username">用户名（手机号/邮箱）</label>
+                    <input type="text" id="username" name="username">
+                    <div class="error-tip" id="usernameError">请输入正确的手机号或邮箱</div>
+                </div>
+                <div class="form-item">
+                    <label for="password">密码</label>
+                    <input type="password" id="password" name="password">
+                    <div class="password-strength">
+                        <div class="strength-bar" id="strength1"></div>
+                        <div class="strength-bar" id="strength2"></div>
+                        <div class="strength-bar" id="strength3"></div>
+                    </div>
+                    <div class="strength-text" id="strengthText">密码强度：弱</div>
+                    <div class="error-tip" id="passwordError">密码长度不能少于8位</div>
+                </div>
+                <button type="submit" class="login-btn">登录</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="ludong">
+        <ul class="ludong1">
+            <li><img src="https://picsum.photos/2050/500?random=1" alt="轮播图1"></li>
+            <li><img src="https://picsum.photos/2050/500?random=2" alt="轮播图2"></li>
+            <li><img src="https://picsum.photos/2050/500?random=3" alt="轮播图3"></li>
+            <li><img src="https://picsum.photos/2050/500?random=4" alt="轮播图4"></li>
+            <li><img src="https://picsum.photos/2050/500?random=5" alt="轮播图5"></li>
+        </ul>
+        <div class="ludong2">▶</div>
+    </div>
+
+    <div class="main">
+        <div class="left-bar">
+            <h3>图书分类</h3>
+            <a href="#"><span class="iconfont icon-tubiao1shuxiaoshuo"></span>文学小说</a>
+            <a href="#"><span class="iconfont icon-jisuanji"></span>计算机科学</a>
+            <a href="#"><span class="iconfont icon-_shehuijingji"></span>经济管理</a>
+            <a href="#"><span class="iconfont icon-renwenlishi"></span>人文历史</a>
+            <a href="#"><span class="iconfont icon-kepu"></span>科普教育</a>
+            <a href="#"><span class="iconfont icon-yishushejichuanmei"></span>艺术传媒</a>
+            <a href="#"><span class="iconfont icon-jiaoyukaoshi"></span>教育考试</a>
+            <a href="#"><span class="iconfont icon-shenghuoxiuxian"></span>生活休闲</a>
+        </div>
+
+        <div class="middle-bar">
+            <div class="time-display">
+                <h3 class="section-title">限时活动</h3>
+                <div class="current-time" id="currentTime"></div>
+                <div class="countdown" id="countdown">活动倒计时：00:00:00</div>
+            </div>
+
+            <div class="random-books">
+                <h3 class="section-title">随机图书推荐</h3>
+                <button class="refresh-btn" id="refreshBooks">换一批</button>
+                <div class="random-book-list" id="randomBookList"></div>
+            </div>
+
+            <div class="book-filter-sort">
+                <h4 style="margin:0;">图书筛选与排序：</h4>
+                <button class="sort-btn" id="priceAsc">价格升序</button>
+                <button class="sort-btn" id="priceDesc">价格降序</button>
+                <button class="sort-btn" id="scoreSort">按评分排序</button>
+                <div class="filter-checkbox">
+                    <input type="checkbox" id="inStockOnly">
+                    <label for="inStockOnly">只看有货</label>
+                </div>
+            </div>
+
+            <div class="hot-book">
+                <h3 class="section-title">热门推荐</h3>
+                
+                <div class="kan">
+                    <ul class="xuanzhuan">
+                        <li><img src="https://asdf200767.github.io/duan.github.io/san.jpg" alt="三国演义"></li>
+                        <li><img src="https://asdf200767.github.io/duan.github.io/tushu4.png" alt="三体"></li>
+                        <li><img src="https://asdf200767.github.io/duan.github.io/tushu3.png" alt="图书3"></li>
+                        <li><img src="https://asdf200767.github.io/duan.github.io/tushu5.png" alt="图书5"></li>
+                        <li><img src="https://asdf200767.github.io/duan.github.io/tushu6.png" alt="水浒传"></li>
+                        <li><img src="https://asdf200767.github.io/duan.github.io/san.jpg" alt="三国演义"></li>
+                    </ul>
+                </div>
+
+                <div class="book-list" id="mainBookList">
+                    <div class="book-item">
+                        <div class="zi">
+                            <h2 class="kong1">加入购物车</h2>
+                            <h2 class="kong2">购买</h2>
+                        </div>
+                        <img src="https://asdf200767.github.io/duan.github.io/tushu7.png" alt="三国演义">
+                        <p>《三国演义》:</p>
+                    </div>
+                    <div class="book-item">
+                        <div class="zi">
+                            <h2 class="kong1">加入购物车</h2>
+                            <h2 class="kong2">购买</h2>
+                        </div>
+                        <img src="https://asdf200767.github.io/duan.github.io/tushu8.png" alt="活着">
+                        <p>《活着》:</p>
+                    </div>
+                    <div class="book-item">
+                        <div class="zi">
+                            <h2 class="kong1">加入购物车</h2>
+                            <h2 class="kong2">购买</h2>
+                        </div>
+                        <img src="https://asdf200767.github.io/duan.github.io/tushu4.png" alt="三体">
+                        <p>《三体》:</p>
+                    </div>
+                    <div class="book-item">
+                        <div class="zi">
+                            <h2 class="kong1">加入购物车</h2>
+                            <h2 class="kong2">购买</h2>
+                        </div>
+                        <img src="https://asdf200767.github.io/duan.github.io/tushu6.png" alt="水浒传">
+                        <p>《水浒传》</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="new-book">
+                <h3 class="section-title">新书上市</h3>
+                <table id="newBookTable">
+                    <tr>
+                        <th>书名</th>
+                        <th>作者</th>
+                        <th>价格</th>
+                        <th>优惠</th>
+                    </tr>
+                    <tr>
+                        <td>《三体》</td>
+                        <td>刘慈欣</td>
+                        <td>59.00元</td>
+                        <td>相关书籍打八折</td>
+                    </tr>
+                    <tr>
+                        <td>《三国演义》</td>
+                        <td>罗贯中</td>
+                        <td>45.00元</td>
+                        <td>买一送一</td>
+                    </tr>
+                    <tr>
+                        <td>《水浒传》</td>
+                        <td>施耐庵</td>
+                        <td>69.00元</td>
+                        <td>提前到打九折</td>
+                    </tr>
+                    <tr>
+                        <td>《时间简史》</td>
+                        <td>霍金</td>
+                        <td>52.00元</td>
+                        <td>满200减30</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="jieri">
+                <h1>节日特场</h1>
+                <table>
+                    <tr>
+                        <th>春天</th>
+                        <th colspan="2">代表书籍</th>
+                        <th>夏天</th>
+                        <th colspan="2">代表书籍</th>
+                        <th>秋天</th>
+                        <th colspan="2">代表书籍</th>
+                        <th>冬天</th>
+                        <th colspan="2">代表书籍</th>
+                    </tr>
+                    <tr>
+                        <td>汪曾祺</td>
+                        <td colspan="2">《生活是很好玩的》</td>
+                        <td>洛伊丝·劳里</td>
+                        <td colspan="2">《最后的夏天》</td>
+                        <td>史铁生</td>
+                        <td colspan="2">《秋天的怀念》</td>
+                        <td>沈复</td>
+                        <td colspan="2">《浮生六记》</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="right-bar">
+            <h3>促销活动</h3>
+            <div class="promo-item">
+                <p>限时折扣：全场图书满100减30</p>
+                <p>活动时间：2025-10-20起</p>
+            </div>
+            <div class="promo-item">
+                <p>新客福利：首次下单享8折优惠</p>
+                <p>下单即可</p>
+            </div>
+            <div class="promo-item">
+                <p>满赠活动：满200赠定制书签套装</p>
+                <p>赠品有限，先到先得</p>
+            </div>
+            <div class="promo-item">
+                <p>会员专享：积分兑换精美图书</p>
+                <p>积分越多，优惠越多</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const BookStore = (function() {
+            function Book(name, author, price, category, score, inStock = true) {
+                this.name = name;
+                this.author = author;
+                this.price = price;
+                this.category = category;
+                this.score = score;
+                this.inStock = inStock;
+                this.id = Math.floor(Math.random() * 10000);
+            }
+
+            const User = {
+                isLogin: false,
+                username: '',
+                cart: [],
+                login: function(uname) {
+                    this.isLogin = true;
+                    this.username = uname;
+                    console.log('用户登录成功：', uname);
+                },
+                addToCart: function(book) {
+                    this.cart.push(book);
+                    alert(`《${book.name}》已加入购物车！`);
+                }
+            };
+
+            const bookData = [
+                new Book("三国演义", "罗贯中", 45.00, "古典文学", 9.2, true),
+                new Book("活着", "余华", 39.80, "现代文学", 9.4, true),
+                new Book("三体", "刘慈欣", 59.00, "科幻", 9.3, false),
+                new Book("水浒传", "施耐庵", 69.00, "古典文学", 9.1, true),
+                new Book("时间简史", "霍金", 52.00, "科普", 9.0, true),
+                new Book("生活是很好玩的", "汪曾祺", 42.00, "散文", 8.9, false),
+                new Book("最后的夏天", "洛伊丝·劳里", 58.00, "外国文学", 8.7, true),
+                new Book("秋天的怀念", "史铁生", 35.00, "散文", 9.5, true),
+                new Book("浮生六记", "沈复", 48.00, "古典散文", 9.2, true)
+            ];
+
+            const elements = {
+                searchInput: document.getElementById('smartSearchInput'),
+                searchResult: document.getElementById('searchResult'),
+                filterBtns: document.querySelectorAll('.filter-btn'),
+                loginLink: document.querySelector('#loginLink'),
+                loginModal: document.getElementById('loginModal'),
+                closeLogin: document.getElementById('closeLogin'),
+                loginForm: document.getElementById('loginForm'),
+                usernameInput: document.getElementById('username'),
+                passwordInput: document.getElementById('password'),
+                usernameError: document.getElementById('usernameError'),
+                passwordError: document.getElementById('passwordError'),
+                strengthBars: [
+                    document.getElementById('strength1'),
+                    document.getElementById('strength2'),
+                    document.getElementById('strength3')
+                ],
+                strengthText: document.getElementById('strengthText'),
+                bookItems: document.getElementsByClassName('book-item'),
+                refreshBooksBtn: document.getElementById('refreshBooks'),
+                randomBookList: document.getElementById('randomBookList'),
+                priceAscBtn: document.getElementById('priceAsc'),
+                priceDescBtn: document.getElementById('priceDesc'),
+                scoreSortBtn: document.getElementById('scoreSort'),
+                inStockCheckbox: document.getElementById('inStockOnly'),
+                currentTimeEl: document.getElementById('currentTime'),
+                countdownEl: document.getElementById('countdown'),
+                mainBookList: document.getElementById('mainBookList'),
+                newBookTable: document.getElementById('newBookTable')
+            };
+
+            function init() {
+                initSearch();
+                initLogin();
+                initBookInteractions();
+                initRandomBooks();
+                initSortFilter();
+                initTimeFunctions();
+                renderBookTable();
+            }
+
+            function initSearch() {
+                let activeFilter = 'all';
+
+                elements.filterBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        elements.filterBtns.forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        activeFilter = this.dataset.type;
+                        handleSearch(elements.searchInput.value);
+                    });
+                });
+
+                elements.searchInput.addEventListener('input', function() {
+                    handleSearch(this.value);
+                });
+
+                elements.searchInput.addEventListener('focus', function() {
+                    if (this.value.trim()) {
+                        elements.searchResult.style.display = 'block';
+                    }
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.smart-search')) {
+                        elements.searchResult.style.display = 'none';
+                    }
+                });
+
+                function handleSearch(keyword) {
+                    keyword = keyword.trim().toLowerCase();
+                    elements.searchResult.innerHTML = '';
+
+                    if (!keyword) {
+                        elements.searchResult.style.display = 'none';
+                        return;
+                    }
+
+                    const filtered = bookData.filter(book => {
+                        switch (activeFilter) {
+                            case 'name':
+                                return book.name.toLowerCase().includes(keyword);
+                            case 'author':
+                                return book.author.toLowerCase().includes(keyword);
+                            case 'category':
+                                return book.category.toLowerCase().includes(keyword);
+                            default:
+                                return book.name.toLowerCase().includes(keyword) ||
+                                    book.author.toLowerCase().includes(keyword) ||
+                                    book.category.toLowerCase().includes(keyword);
+                        }
+                    });
+
+                    if (filtered.length > 0) {
+                        elements.searchResult.style.display = 'block';
+                        filtered.forEach(book => {
+                            const item = document.createElement('div');
+                            item.className = 'result-item';
+                            item.innerHTML = `
+                                <p class="name">${book.name}</p>
+                                <p class="info">作者：${book.author} | 分类：${book.category} | 评分：${book.score}</p>
+                            `;
+                            elements.searchResult.appendChild(item);
+
+                            item.addEventListener('click', function() {
+                                User.addToCart(book);
+                                elements.searchResult.style.display = 'none';
+                                elements.searchInput.value = '';
+                            });
+                        });
+                    } else {
+                        elements.searchResult.style.display = 'block';
+                        const noResult = document.createElement('div');
+                        noResult.className = 'no-result';
+                        noResult.innerText = '暂无匹配图书';
+                        elements.searchResult.appendChild(noResult);
+                    }
+                }
+            }
+
+            function initLogin() {
+                elements.loginLink.addEventListener('click', function() {
+                    elements.loginModal.classList.add('show');
+                });
+
+                elements.closeLogin.addEventListener('click', function() {
+                    resetLoginForm();
+                });
+
+                elements.loginModal.addEventListener('click', function(e) {
+                    if (e.target === elements.loginModal) {
+                        resetLoginForm();
+                    }
+                });
+
+                elements.usernameInput.addEventListener('input', function() {
+                    const val = this.value.trim();
+                    const phoneReg = /^1[3-9]\d{9}$/;
+                    const emailReg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+                    if (val && !phoneReg.test(val) && !emailReg.test(val)) {
+                        elements.usernameError.style.display = 'block';
+                    } else {
+                        elements.usernameError.style.display = 'none';
+                    }
+                });
+
+                elements.passwordInput.addEventListener('input', function() {
+                    const pwd = this.value;
+                    let strength = 0;
+
+                    elements.strengthBars.forEach(bar => {
+                        bar.className = 'strength-bar';
+                    });
+
+                    if (pwd.length >= 8) strength++;
+                    if (pwd.length >= 10 || /[A-Z]/.test(pwd) || /[0-9]/.test(pwd)) strength++;
+                    if (pwd.length >= 12 && /[A-Z]/.test(pwd) && /[0-9]/.test(pwd) && /[^a-zA-Z0-9]/.test(pwd)) strength++;
+
+                    for (let i = 0; i < strength; i++) {
+                        if (strength === 1) {
+                            elements.strengthBars[i].classList.add('weak');
+                            elements.strengthText.innerText = '密码强度：弱';
+                        } else if (strength === 2) {
+                            elements.strengthBars[i].classList.add('medium');
+                            elements.strengthText.innerText = '密码强度：中';
+                        } else if (strength === 3) {
+                            elements.strengthBars[i].classList.add('strong');
+                            elements.strengthText.innerText = '密码强度：强';
+                        }
+                    }
+
+                    if (pwd.length > 0 && pwd.length < 8) {
+                        elements.passwordError.style.display = 'block';
+                    } else {
+                        elements.passwordError.style.display = 'none';
+                    }
+                });
+
+                elements.loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const username = elements.usernameInput.value.trim();
+                    const password = elements.passwordInput.value;
+
+                    let isValid = true;
+                    const phoneReg = /^1[3-9]\d{9}$/;
+                    const emailReg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+                    if (!username || (!phoneReg.test(username) && !emailReg.test(username))) {
+                        elements.usernameError.style.display = 'block';
+                        isValid = false;
+                    }
+
+                    if (password.length < 8) {
+                        elements.passwordError.style.display = 'block';
+                        isValid = false;
+                    }
+
+                    if (isValid) {
+                        User.login(username);
+                        elements.loginModal.classList.remove('show');
+                        elements.loginLink.innerHTML = `欢迎：${username.substring(0, 6)}`;
+                        elements.loginLink.style.color = '#e74c3c';
+                        
+                        this.reset();
+                        resetLoginForm();
+                        alert('登录成功！');
+                    }
+                });
+
+                function resetLoginForm() {
+                    elements.loginModal.classList.remove('show');
+                    elements.usernameError.style.display = 'none';
+                    elements.passwordError.style.display = 'none';
+                    elements.loginForm.reset();
+                    elements.strengthBars.forEach(bar => {
+                        bar.className = 'strength-bar';
+                    });
+                    elements.strengthText.innerText = '密码强度：弱';
+                }
+            }
+
+            function initBookInteractions() {
+                Array.from(elements.bookItems).forEach(item => {
+                    const buyBtn = item.querySelector('.kong2');
+                    const cartBtn = item.querySelector('.kong1');
+                    const bookName = item.querySelector('p').innerText.replace('：', '').replace('《', '').replace('》', '');
+                    
+                    const book = bookData.find(b => b.name === bookName);
+
+                    cartBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        if (User.isLogin) {
+                            User.addToCart(book);
+                        } else {
+                            elements.loginModal.classList.add('show');
+                            alert('请先登录！');
+                        }
+                    });
+
+                    buyBtn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        if (User.isLogin) {
+                            alert(`已购买《${book.name}》，价格：${book.price}元`);
+                        } else {
+                            elements.loginModal.classList.add('show');
+                            alert('请先登录！');
+                        }
+                    });
+                });
+            }
+
+            function initRandomBooks() {
+                renderRandomBooks();
+                
+                elements.refreshBooksBtn.addEventListener('click', renderRandomBooks);
+
+                function renderRandomBooks() {
+                    const tempBooks = [...bookData];
+                    const randomBooks = [];
+                    
+                    while (randomBooks.length < 5 && tempBooks.length > 0) {
+                        const randomIndex = Math.floor(Math.random() * tempBooks.length);
+                        const book = tempBooks.splice(randomIndex, 1)[0];
+                        randomBooks.push(book);
+                    }
+                    
+                    const booksHtml = randomBooks.map(book => `
+                        <div class="random-book-item">
+                            <h4>《${book.name}》</h4>
+                            <p>作者：${book.author}</p>
+                            <p>价格：¥${book.price.toFixed(2)}</p>
+                            <p>评分：${book.score}分</p>
+                            <p>${book.inStock ? '有货' : '无货'}</p>
+                        </div>
+                    `).join('');
+                    
+                    elements.randomBookList.innerHTML = booksHtml;
+                }
+            }
+
+            function initSortFilter() {
+                elements.priceAscBtn.addEventListener('click', function() {
+                    const sortedBooks = [...bookData].sort((a, b) => a.price - b.price);
+                    renderBooks(sortedBooks);
+                });
+
+                elements.priceDescBtn.addEventListener('click', function() {
+                    const sortedBooks = [...bookData].sort((a, b) => b.price - a.price);
+                    renderBooks(sortedBooks);
+                });
+
+                elements.scoreSortBtn.addEventListener('click', function() {
+                    const sortedBooks = [...bookData].sort((a, b) => b.score - a.score);
+                    renderBooks(sortedBooks);
+                });
+
+                elements.inStockCheckbox.addEventListener('change', function() {
+                    let filteredBooks = [...bookData];
+                    if (this.checked) {
+                        filteredBooks = bookData.filter(book => book.inStock);
+                    }
+                    renderBooks(filteredBooks);
+                });
+
+                function renderBooks(books) {
+                    let tableHtml = `
+                        <tr>
+                            <th>书名</th>
+                            <th>作者</th>
+                            <th>价格</th>
+                            <th>评分</th>
+                            <th>库存状态</th>
+                        </tr>
+                    `;
+                    
+                    tableHtml += books.map(book => `
+                        <tr>
+                            <td>《${book.name}》</td>
+                            <td>${book.author}</td>
+                            <td>¥${book.price.toFixed(2)}</td>
+                            <td>${book.score}</td>
+                            <td>${book.inStock ? '有货' : '无货'}</td>
+                        </tr>
+                    `).join('');
+                    
+                    elements.newBookTable.innerHTML = tableHtml;
+                }
+            }
+
+            function initTimeFunctions() {
+                setInterval(function() {
+                    const now = new Date();
+                    const timeStr = `${now.getFullYear()}年${now.getMonth() + 1}月${now.getDate()}日 ${
+                        now.getHours().toString().padStart(2, '0')}:${
+                        now.getMinutes().toString().padStart(2, '0')}:${
+                        now.getSeconds().toString().padStart(2, '0')
+                    }`;
+                    elements.currentTimeEl.innerText = `当前时间：${timeStr}`;
+                }, 1000);
+
+                const endTime = new Date();
+                endTime.setHours(endTime.getHours() + 1);
+                
+                function updateCountdown() {
+                    const now = new Date();
+                    const diff = endTime - now;
+                    
+                    if (diff <= 0) {
+                        elements.countdownEl.innerText = '活动已结束！';
+                        return;
+                    }
+                    
+                    const hours = Math.floor(diff / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                    
+                    elements.countdownEl.innerText = `活动倒计时：${
+                        hours.toString().padStart(2, '0')}:${
+                        minutes.toString().padStart(2, '0')}:${
+                        seconds.toString().padStart(2, '0')
+                    }`;
+                }
+                
+                updateCountdown();
+                setInterval(updateCountdown, 1000);
+                
+                setTimeout(function() {
+                    console.log('欢迎使用鲁东大学图书会系统！');
+                }, 5000);
+            }
+
+            function renderBookTable() {
+                let tableHtml = `
+                    <tr>
+                        <th>书名</th>
+                        <th>作者</th>
+                        <th>价格</th>
+                        <th>评分</th>
+                        <th>库存状态</th>
+                    </tr>
+                `;
+                
+                tableHtml += bookData.map(book => `
+                    <tr>
+                        <td>《${book.name}》</td>
+                        <td>${book.author}</td>
+                        <td>¥${book.price.toFixed(2)}</td>
+                        <td>${book.score}</td>
+                        <td>${book.inStock ? '有货' : '无货'}</td>
+                    </tr>
+                `).join('');
+                
+                elements.newBookTable.innerHTML = tableHtml;
+            }
+
+            return {
+                init: init
+            };
+        })();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            BookStore.init();
+        });
+    </script>
+</body>
+</html>
