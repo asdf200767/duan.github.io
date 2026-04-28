@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鲁东大学图书会</title>
+    <link rel="stylesheet" href="lab3-2504-125-index.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">鲁东大学图书会</div>
+        <ul class="nav">
+            <li><a href="javascript:;">首页</a></li>
+            <li><a href="javascript:;">图书分类</a></li>
+            <li><a href="javascript:;">热门推荐</a></li>
+            <li><a href="javascript:;">关于我们</a></li>
+            <li><a id="loginBtn" href="javascript:;">登录/注册</a></li>
+        </ul>
+    </div>
+
+    <div class="modal-container" id="modalContainer">
+        <div class="modal-box">
+            <span class="close-btn" id="closeBtn">&times;</span>
+            <div class="form-box login-form" id="loginForm">
+                <h2>用户登录</h2>
+                <div class="input-box">
+                    <input type="text" id="loginUser" placeholder="请输入用户名" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="loginPwd" placeholder="请输入密码" required>
+                </div>
+                <button class="submit-btn" id="loginSubmit">登录</button>
+                <p class="switch-text">没有账号？<a href="javascript:;" id="toRegister">立即注册</a></p>
+            </div>
+
+            <div class="form-box register-form" id="registerForm">
+                <h2>用户注册</h2>
+                <div class="input-box">
+                    <input type="text" id="regUser" placeholder="请输入用户名" required>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="regPwd" placeholder="请输入密码" required>
+                </div>
+                <button class="submit-btn" id="regSubmit">注册</button>
+                <p class="switch-text">已有账号？<a href="javascript:;" id="toLogin">立即登录</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="left-bar">
+            <h3>图书分类</h3>
+            <a href="javascript:;">文学小说</a>
+            <a href="javascript:;">计算机科学</a>
+            <a href="javascript:;">经济管理</a>
+            <a href="javascript:;">人文历史</a>
+            <a href="javascript:;">科普读物</a>
+            <a href="javascript:;">艺术设计</a>
+            <a href="javascript:;">教育考试</a>
+            <a href="javascript:;">生活休闲</a>
+        </div>
+        <div class="middle-bar">
+            <div class="hot-book">
+                <h3 class="section-title">热门推荐</h3>
+                <div class="book-item">
+                    <img src="img/tushu7.png" alt="三国演义">
+                    <p>《三国演义》</p>
+                </div>
+                <div class="book-item">
+                    <img src="img/tushu8.png" alt="活着">
+                    <p>《活着》</p>
+                </div>
+                <div class="book-item">
+                    <img src="img/tushu4.png" alt="三体">
+                    <p>《三体》</p>
+                </div>
+                <div class="book-item">
+                    <img src="img/tushu6.png" alt="水浒传">
+                    <p>《水浒传》</p>
+                </div>
+                <div class="book-item">
+                    <img src="img/tushu9.png" alt="红楼梦">
+                    <p>《红楼梦》</p>
+                </div>
+                <div class="book-item">
+                    <img src="img/tushu5.png" alt="西游记">
+                    <p>《西游记》</p>
+                </div>
+            </div>
+            <div class="new-book">
+                <h3 class="section-title">新书上市</h3>
+                <table>
+                    <tr>
+                        <th>书名</th>
+                        <th>作者</th>
+                        <th>价格</th>
+                        <th>优惠</th>
+                    </tr>
+                    <tr>
+                        <td>《三体》</td>
+                        <td>刘慈欣</td>
+                        <td>59.00元</td>
+                        <td>相关书籍打八折</td>
+                    </tr>
+                    <tr>
+                        <td>《三国演义》</td>
+                        <td>罗贯中</td>
+                        <td>45.00元</td>
+                        <td>买一送一</td>
+                    </tr>
+                    <tr>
+                        <td>《水浒传》</td>
+                        <td>施耐庵</td>
+                        <td>69.00元</td>
+                        <td>提前到打九折</td>
+                    </tr>
+                    <tr>
+                        <td>《时间简史》</td>
+                        <td>霍金</td>
+                        <td>52.00元</td>
+                        <td>满200减30</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="jieri">
+                <h1>节日特场</h1>
+                <table>
+                    <tr>
+                        <th>春天</th>
+                        <th colspan="2">代表书籍</th>
+                        <th>夏天</th>
+                        <th colspan="2">代表书籍</th>
+                        <th>秋天</th>
+                        <th colspan="2">代表书籍</th>
+                        <th>冬天</th>
+                        <th colspan="2">代表书籍</th>
+                    </tr>
+                    <tr>
+                        <td>汪曾祺</td>
+                        <td colspan="2">《生活是很好玩的》</td>
+                        <td>洛伊丝·劳里</td>
+                        <td colspan="2">《最后的夏天》</td>
+                        <td>史铁生</td>
+                        <td colspan="2">《秋天的怀念》</td>
+                        <td>沈复</td>
+                        <td colspan="2">《浮生六记》</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="right-bar">
+            <h3>促销活动</h3>
+            <div class="promo-item">
+                <p>限时折扣：全场图书满100减30</p>
+                <p>活动时间：2025-10-20起</p>
+            </div>
+            <div class="promo-item">
+                <p>新客福利：首次下单享8折优惠</p>
+                <p>下单即可</p>
+            </div>
+            <div class="promo-item">
+                <p>满赠活动：满200赠定制书签套装</p>
+                <p>赠品有限，先到先得</p>
+            </div>
+            <div class="promo-item">
+                <p>会员专享：积分兑换精美图书</p>
+                <p>积分越多，优惠越多</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const loginBtn = document.getElementById('loginBtn');
+        const modalContainer = document.getElementById('modalContainer');
+        const closeBtn = document.getElementById('closeBtn');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const toRegister = document.getElementById('toRegister');
+        const toLogin = document.getElementById('toLogin');
+        const loginSubmit = document.getElementById('loginSubmit');
+        const regSubmit = document.getElementById('regSubmit');
+
+        loginBtn.onclick = function () {
+            modalContainer.style.display = 'flex';
+        }
+
+        closeBtn.onclick = function () {
+            modalContainer.style.display = 'none';
+        }
+
+        toRegister.onclick = function () {
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'block';
+        }
+
+        toLogin.onclick = function () {
+            registerForm.style.display = 'none';
+            loginForm.style.display = 'block';
+        }
+
+        regSubmit.onclick = function () {
+            const username = document.getElementById('regUser').value.trim();
+            const password = document.getElementById('regPwd').value.trim();
+
+            if (!username || !password) {
+                alert('用户名和密码不能为空！');
+                return;
+            }
+
+            let users = JSON.parse(localStorage.getItem('users') || '[]');
+            const isExist = users.some(item => item.username === username);
+            if (isExist) {
+                alert('该用户名已被注册！');
+                return;
+            }
+
+            users.push({ username, password });
+            localStorage.setItem('users', JSON.stringify(users));
+            alert('注册成功！请登录');
+            
+            document.getElementById('regUser').value = '';
+            document.getElementById('regPwd').value = '';
+            registerForm.style.display = 'none';
+            loginForm.style.display = 'block';
+        }
+
+        loginSubmit.onclick = function () {
+            const username = document.getElementById('loginUser').value.trim();
+            const password = document.getElementById('loginPwd').value.trim();
+
+            if (!username || !password) {
+                alert('用户名和密码不能为空！');
+                return;
+            }
+
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const target = users.find(item => item.username === username && item.password === password);
+
+            if (target) {
+                alert('登录成功！欢迎回来，' + username);
+                modalContainer.style.display = 'none';
+                loginBtn.innerHTML = '欢迎，' + username;
+            } else {
+                alert('用户名或密码错误！');
+            }
+        }
+    </script>
+</body>
+</html>
